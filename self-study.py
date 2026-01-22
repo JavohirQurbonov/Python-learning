@@ -30,7 +30,6 @@
 # from logging import info
 from threading import settrace_all_threads
 
-
 # print(talaba1.get_bosqich(4))
 
 
@@ -436,5 +435,109 @@ from threading import settrace_all_threads
 #
 # print(salon[0])
 
+# --------------------------------Fayllar bilan ishlash----------------------------------
 
+# with open('pi.txt') as fayl:
+#     pi = fayl.read()
+#     pi= pi.rstrip()
+#     pi= pi.replace('\n','')
+#     pi= float(pi)
+#     print(pi)
+
+
+# file=open('pi.txt')
+# pi=file.read()
+# print(pi)
+# file.close()
+
+# with open('pi.txt') as file:
+#      numbers=file.readlines()
+# print(numbers)
+
+# with open('pi.txt') as file:
+#     numbers=[number.rstrip() for number in file]
+#     print(numbers)
+
+# with open('pi.txt','w') as file:
+#     file.write("hello")
+# print(file)
+
+# file_name='new.txt'
+# name='javohir'
+# surname='qurbonov'
+# age=24
+# with open(file_name,'w') as file:
+#     file.write(name.capitalize()+'\n')
+#     file.write(surname.capitalize())
+#     file.write(str(age)+'\n')
+# print(file)
+
+# with open('new.txt','a+') as file:
+#     file.write('Navoiy viloyati')
+# print(file)
+
+# import pickle
+#
+# student1={'name':'elbek','surname':'razzokov','birt_date':'12.09.2001','kurs':1}
+# with open("students","wb") as file:
+#     pickle.dump(student1,file)
+
+# with open('C:\\Users\\javoh\\Desktop\\data.txt') as file:
+#     file=file.read()
+# #     print(file)
+#
+
+# def izla(number):
+#     result=''
+#     with open('C:\\Users\\javoh\\Downloads\\pi_1000_digits.txt','r') as file:
+#         pi=file.read()
+#         pi=pi.strip()
+#         pi=pi.replace('\n ',' ')
+#         if str(number) in pi:
+#             result='bor'
+#         else:
+#             result='yoq'
+#     return result
+# print(izla(12092001))
+
+
+# def fill_information(name,surname,age):
+#     file_name='information.txt'
+#     with open(file_name,'a') as fayl:
+#         fayl.write(name+'\n')
+#         fayl.write(surname+'\n')
+#         fayl.write(str(age)+'\n')
+#     return file_name
+#
+# count=0
+# while True:
+#     name=input(f"{count+1}:Enter your name:")
+#     surname=input(f"{name.capitalize()} enter your surname:")
+#     age=int(input(f"{name.capitalize()} enter your age:"))
+#     count+=1
+#     data = fill_information(name, surname, age)
+#     ask=input("Do you add any person?(y/n)")
+#     if ask=="n":
+#         break
+#
+# print(data)
+
+import json
+
+# x = {'name': 'javohir',
+#      'email': 'javohir5592272@gmail.com',
+#      'phone':None}
+# with open('data.json', 'w') as outfile:
+#     json.dump(x, outfile)
+# with open('data.json', 'r') as f:
+#     file=json.load(f)
+# print(type(file))
+
+# data={'Model':'Malibu','Rang':'Qora','Yil':2020,'Narx':40_000}
+# with open('data.json','w') as f:
+#     json.dump(data,f)
+#
+with open('data.json') as f:
+    data = json.load(f)
+print(data['Rang'])
 
