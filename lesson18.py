@@ -5,7 +5,7 @@
 #
 # add_five=tashqi_funksiya(5)
 # print(add_five(10))
-from functools import wraps
+#from functools import wraps
 
 
 # def matnni_qayta_ishlash(matn):
