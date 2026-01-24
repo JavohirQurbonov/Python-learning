@@ -1,4 +1,5 @@
 # # 1--------------------print-----------------------
+from calendar import month
 
 # print("\"O'zbekiston Vatan\"im meni!!!")
 
@@ -367,140 +368,434 @@
 
 
 #------------------------Normativ 2-modul--------------------------------
+# 15-16
+# # 1
+#
+# products = {
+#     'adrenaline': {'narxi': 200, 'soni': 20},
+#     'coca-cola': {'narxi': 10000, 'soni': 30},
+#     'morojniy': {'narxi': 20000, 'soni': 10},
+#     'non' : {'narxi':5000,'soni':200}
+# }
+#
+#
+#
+# def add_product(product_name,product_price,product_quantity):
+#
+#     name = product_name.strip().lower()
+#     price = int(product_price)
+#     quantity = int(product_quantity)
+#     if price > 0 and quantity > 0:
+#         if name not in products.keys():
+#             products[name] = {'narxi': price, 'soni': quantity}
+#             products_list()
+#             print("Mahsulot qo'shildi!!!")
+#         else:
+#             products[name]['soni'] += quantity
+#             products_list()
+#     else:
+#         print("Ma'lumot kiritishda xatolik.Qaytadan urinib ko'ring!!!")
+#         products_list()
+#
+#
+# def get_out_product(product_name,product_quantity):
+#
+#     if product_name not in products.keys():
+#         print(f"Bizda {product_name}-mahsuloti mavjud emas!!!")
+#     elif product_quantity<products[product_name]['soni']:
+#         products[product_name]['soni'] -= product_quantity
+#         print(f"{product_name}-mahsulotidan {products[product_name]['soni']}-ta qoldi")
+#     else:
+#         print(f"Afsuski {product_name}-mahsulotidan {products[product_name]['soni']}-ta mavjud!!!")
+#         try:
+#             while True:
+#                 question=input("Mahsulotni borini olasizmi?(y/n)")
+#                 if question=='y':
+#                     products[product_name]['soni'] -= products[product_name]['soni']
+#                     if products[product_name]['soni'] == 0:
+#                         products.pop(product_name,None)
+#                     products_list()
+#                     break
+#         except ValueError:
+#             print("Tog'ri bo'limni tanlang!")
+#
+#
+# def products_list():
+#     print(f"{'Mahsulot nomi':<15} | {'Narxi':<12} | {'Miqdori':<12} | {'Umumiy summa':<14}")
+#     print("-" * 65)
+#     for k, v in products.items():
+#         print(f"{k.title():<15} | {v['narxi']:<12} | {v['soni']:<12} | {v['narxi'] * v['soni']:<14}")
+#
+#
+# def input_data():
+#     while True:
+#         back_to_menu=False
+#         try:
+#             command=int(input("1.Mahsulot qo'shish\n2.Mahsulot olib chiqish\n3.Mahsulotlar ro'yxati\n0.Chiqish\nBo'limni tanlang:"))
+#             if command not in [0,1,2,3]:
+#                 print("\nTog'ri bo'limni tanlang!\n")
+#                 continue
+#             if command==0:
+#                 print("Dastur tugadi!!!")
+#                 break
+#             if command==1:
+#                 while True:
+#                     print("\n---MAHSULOT QO'SHISH BO'LIMI---\n")
+#                     product_name = input("Mahsulot nomini kiriting('exit'-chiqish):")
+#                     if product_name=='exit':
+#                         back_to_menu=True
+#                         break
+#                     try:
+#                         product_price=int(input("Mahsulot narxini kiriting('exit'-chiqish):"))
+#                         if product_price=='exit':
+#                             back_to_menu = True
+#                             break
+#                         product_quantity=int(input("Mahsulot miqdorini kiriting('exit'-chiqish):"))
+#                         if product_quantity=='exit':
+#                             back_to_menu = True
+#                             break
+#                         add_product(product_name, product_price, product_quantity)
+#                     except ValueError:
+#                         print("Ma'lumot kiritishda xatolik!")
+#                         ask=input("Yana mahsulot kiritasizmi?(y/n)")
+#                         if ask=='n':
+#                             break
+#                 if back_to_menu:
+#                     continue
+#
+#             if command == 2:
+#                 while True:
+#                     print("\n---MAHSULOT OLIB CHIQISH BO'LIMI---\n")
+#                     product_name = input("Mahsulot nomini kiriting('exit'-chiqish):")
+#                     if product_name == 'exit':
+#                         back_to_menu = True
+#                         break
+#                     try:
+#                         product_quantity = int(input("Mahsulot miqdorini kiriting('exit'-chiqish):"))
+#                         if product_quantity == 'exit':
+#                             back_to_menu = True
+#                             break
+#                         get_out_product(product_name, product_quantity)
+#                     except ValueError:
+#                         print("Ma'lumot kiritishda xatolik!")
+#                         ask = input("Yana mahsulot olib chiqasizmi?(y/n)")
+#                         if ask == 'n':
+#                             break
+#                 if back_to_menu:
+#                     continue
+#
+#             if command == 3:
+#                 while True:
+#                     print("\n---MAHSULOTLAR RO'YXATI BO'LIMI---\n")
+#                     products_list()
+#                     question=input("Menyuga qaytasizmi?(y/n)")
+#                     if question == 'y':
+#                         back_to_menu = True
+#                         break
+#
+#                 if back_to_menu:
+#                     continue
+#
+#             return command
+#         except ValueError:
+#             print("Tog'ri bo'limni tanlang!")
+#             question=input("Menyuga qaytasizmi?(y/n)")
+#             if question=='n':
+#                 break
+#
+# input_data()
+#
 
-# 1
+# # 2
+# 17-18
+# class User:
+#     """Foydalanuvchi haqida ma'lumot beruvchi klass"""
+#     def __init__(self, firstname, lastname, username, email, phone=None, bio=None):
+#         self.firstname = firstname.title()
+#         self.lastname = lastname.title()
+#         self.username = username
+#         self.email = email
+#         self.phone = phone
+#         self.bio = bio
+#
+#     def get_full_name(self):
+#         return f"{self.firstname} {self.lastname}"
+#
+#     def get_info(self):
+#         return f"Ism:{self.firstname}\nFamiliya:{self.lastname}\nUsername:{self.username}\nEmail:{self.email}\nPhone:{self.phone}\n"
+#
+#     def update_email(self,new_email):
+#         self.email=new_email
+#         return self.email
+#
+#     def update_phone(self,new_phone):
+#         self.phone=new_phone
+#         return self.phone
+#
+# obj1=User("javohir",'qurbonov','java_coder','javohir5592272@gmail.com','904466998')
+# obj2=User('sohib','rahmatov','sohib7474','sohib@gmail.com')
+# print(obj1.get_info())
+#
+# obj2.update_phone(934557585)
+# print(obj2.get_info())
+#
+# obj1.update_phone(333231003)
+# print(obj1.get_info())
 
-products = {
-    'adrenaline': {'narxi': 200, 'soni': 20},
-    'coca-cola': {'narxi': 10000, 'soni': 30},
-    'morojniy': {'narxi': 20000, 'soni': 10},
-    'non' : {'narxi':5000,'soni':200}
-}
+
+# class User:
+#     """Foydalanuvchi haqida ma'lumot beruvchi klass"""
+#
+#     def __init__(self, firstname, lastname, username, email, phone=None, bio=None):
+#         self.firstname = firstname.title()
+#         self.lastname = lastname.title()
+#         self.username = username
+#         self.email = email
+#         self.phone = phone
+#         self.bio = bio
+#
+#     def get_full_name(self):
+#         return f"{self.firstname} {self.lastname}"
+#
+#     def get_info(self):
+#         return (
+#             f"Ism: {self.firstname}\n"
+#             f"Familiya: {self.lastname}\n"
+#             f"Username: {self.username}\n"
+#             f"Email: {self.email}\n"
+#             f"Phone: {self.phone}\n"
+#             f"Bio: {self.bio}\n"
+#         )
+#
+#     def update_email(self, new_email):
+#         self.email = new_email
+#
+#     def update_phone(self, new_phone):
+#         self.phone = new_phone
+#
+#
+# obj1 = User("javohir", "qurbonov", "java_coder", "javohir@gmail.com", "904466998", "Python backend developer")
+# obj2 = User("sohib", "rahmatov", "sohib7474", "sohib@gmail.com")
+#
+# print(obj1.get_info())
+#
+# obj2.update_phone("934557585")
+# obj2.update_email("new_sohib@gmail.com")
+#
+# print(obj2.get_info())
+
+# 13-14
+
+# month_names=['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentyabr','oktyabr','noyabr','dekabr']
+# unpaid_month=[]
+# month_number=1
+# paid_month=0
+# unpaid=0
+# while month_number<=12:
+#     status=input(f"{month_names[month_number-1].title()}-oyi uchun ijarani to'ladingizmi?(y/n)(chiqish-'exit')")
+#     if status=='exit':
+#         break
+#     if status.lower() in ['y','n']:
+#         if status=="y":
+#             paid_month+=1
+#         else:
+#             unpaid_month.append(month_names[month_number-1].title())
+#             unpaid+=1
+#         month_number+=1
+#     else:
+#         print("Iltimos 'y' or 'n' ikkisidan birini kiriting!")
+#         continue
+# print(f"Siz {paid_month}-oy uchun to'ladingiz!"
+#       f"{unpaid_month}-oylar uchun ijarani to'lamadingiz!")
+
+# extra
+
+# month_names = [
+#     'yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentyabr','oktyabr','noyabr','dekabr']
+#
+# unpaid_months = []
+# month_number = 1
+# paid_months = 0
+#
+# while month_number <= 12:
+#     try:
+#         status = input(f"{month_names[month_number-1].title()} oyi uchun ijarani to'ladingizmi? (y/n)(chiqish-'exit'): ")
+#
+#         if status.lower() == 'exit':
+#             break
+#
+#         if status.lower() not in ['y', 'n']:
+#             raise ValueError("Noto‘g‘ri qiymat")
+#
+#         if status.lower() == 'y':
+#             paid_months += 1
+#         else:
+#             unpaid_months.append(month_names[month_number-1].title())
+#
+#         month_number += 1
+#
+#     except ValueError:
+#         print("Iltimos faqat 'y' yoki 'n' kiriting!")
+#
+# print(f"Siz {paid_months} oy ijarani to‘ladingiz.")
+# print(f"To‘lanmagan oylar: {unpaid_months}")
 
 
+#15-16
 
-def add_product(product_name,product_price,product_quantity):
+# from abc import ABC,abstractmethod
+#
+# class Computer(ABC):
+#     """Computer class"""
+#     total_computers=0
+#
+#     def __init__(self, brand, model, year, price):
+#         self.brand=brand
+#         self.model=model
+#         self.year=year
+#         self.price=price
+#         Computer.total_computers+=1
+#
+#     @abstractmethod
+#     def display_info(self):
+#         pass
+#
+#     @classmethod
+#     def get_total_computers(cls):
+#         return f"Jami kompyuterlar:{cls.total_computers}"
+#
+# class Monoblock(Computer):
+#     """Monoblock class"""
+#     def __init__(self, brand, model, year, price,screen_size):
+#         super().__init__(brand,model,year,price)
+#         self.screen_size=screen_size
+#
+#     def display_info(self):
+#         return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self.price}\nScreen:{self.screen_size}"
+#
+# class Notebook(Computer):
+#     """Notebook class"""
+#     def __init__(self, brand, model, year, price, battery_life):
+#         super().__init__(brand,model,year,price)
+#         self.battery_life=battery_life
+#
+#     def display_info(self):
+#         return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self.price}\nBattery:{self.battery_life}"
+#
+#
+# obj1=Monoblock('Apple','iMac',2022,1500,27)
+# obj2=Notebook('Lenovo','Thinkpad',2024,900,8)
+# print(obj1.display_info())
+# print(obj2.display_info())
+# print(Computer.get_total_computers())
 
-    name = product_name.strip().lower()
-    price = int(product_price)
-    quantity = int(product_quantity)
-    if price > 0 and quantity > 0:
-        if name not in products.keys():
-            products[name] = {'narxi': price, 'soni': quantity}
-            products_list()
-            print("Mahsulot qo'shildi!!!")
+
+# 17
+
+from abc import ABC,abstractmethod
+from itertools import product
+
+
+class Computer(ABC):
+    """Computer class"""
+    total_computer=0
+    def __init__(self, brand, model, year, price):
+        self.brand=brand
+        self.model=model
+        self.year=year
+        self._price=price
+        Computer.total_computer+=1
+
+    @abstractmethod
+    def display_info(self):
+        pass
+
+    @classmethod
+    def get_total_computers(cls):
+        return f"Jami kompyuterlar:{cls.total_computer}"
+
+    def get_price(self):
+        return f"Narxi:{self._price}"
+
+    def set_price(self,price):
+        if price<0:
+            raise ValueError("Narx manfiy bo'lishi mumkin emas!")
         else:
-            products[name]['soni'] += quantity
-            products_list()
-    else:
-        print("Ma'lumot kiritishda xatolik.Qaytadan urinib ko'ring!!!")
-        products_list()
+            self._price=price
+
+    def __gt__(self, other):
+        return self._price > other._price
+
+    def __repr__(self):
+        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}"
+
+class Monoblock(Computer):
+    """Monoblock class"""
+    def __init__(self,brand,model,year,price, screen_size):
+        super().__init__(brand,model,year,price)
+        self.screen_size=screen_size
+
+    def display_info(self):
+        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nScreen:{self.screen_size}"
+
+class Notebook(Computer):
+    """Notebook class"""
+    def __init__(self,brand,model,year,price, battery_life):
+        super().__init__(brand,model,year,price)
+        self.battery_life=battery_life
+
+    def display_info(self):
+        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nScreen:{self.battery_life}"
 
 
-def get_out_product(product_name,product_quantity):
+class Factory:
+    """Factory class"""
+    total_factories=0
+    def __init__(self,name):
+        self.name=name
+        self.products=[]
+        Factory.total_factories+=1
 
-    if product_name not in products.keys():
-        print(f"Bizda {product_name}-mahsuloti mavjud emas!!!")
-    elif product_quantity<products[product_name]['soni']:
-        products[product_name]['soni'] -= product_quantity
-        print(f"{product_name}-mahsulotidan {products[product_name]['soni']}-ta qoldi")
-    else:
-        print(f"Afsuski {product_name}-mahsulotidan {products[product_name]['soni']}-ta mavjud!!!")
-        try:
-            while True:
-                question=input("Mahsulotni borini olasizmi?(y/n)")
-                if question=='y':
-                    products[product_name]['soni'] -= products[product_name]['soni']
-                    if products[product_name]['soni'] == 0:
-                        products.pop(product_name,None)
-                    products_list()
-                    break
-        except ValueError:
-            print("Tog'ri bo'limni tanlang!")
+    def add_product(self,product):
+        if isinstance(product,Computer):
+            self.products.append(product)
+        else:
+            raise ValueError("Kompyuter klassidan emas!")
+    def __repr__(self):
+        return f"{self.name}({self.products})"
+    def list_products(self):
+        return f"Zavodda mavjud mahsulotlar:{self.products}"
+
+    @classmethod
+    def get_total_factories(cls):
+        return f"Jami yaratilgan zavodlar soni:{cls.total_factories}"
+
+obj1 = Monoblock('Apple', 'iMac', 2022, 1500, 27)
+obj2 = Notebook('Lenovo', 'Thinkpad', 2024, 900, 8)
+obj3 = Monoblock('Asus', 'TUF GAMING', 2023, 800, 15)
+factory1=Factory("Lenovo")
+factory1.add_product(obj2)
+factory1.add_product(obj3)
+factory2=Factory("Apple")
+factory2.add_product(obj1)
+print(factory1.list_products())
+print(Factory.get_total_factories())
+print(obj1<obj2)
+print(factory1.list_products())
+print(factory1)
 
 
-def products_list():
-    print(f"{'Mahsulot nomi':<15} | {'Narxi':<12} | {'Miqdori':<12} | {'Umumiy summa':<14}")
-    print("-" * 65)
-    for k, v in products.items():
-        print(f"{k.title():<15} | {v['narxi']:<12} | {v['soni']:<12} | {v['narxi'] * v['soni']:<14}")
+# print(obj1.display_info())
+# print(obj2.display_info())
+# print(Computer.get_total_computers())
 
 
-def input_data():
-    while True:
-        back_to_menu=False
-        try:
-            command=int(input("1.Mahsulot qo'shish\n2.Mahsulot olib chiqish\n3.Mahsulotlar ro'yxati\n0.Chiqish\nBo'limni tanlang:"))
-            if command not in [0,1,2,3]:
-                print("\nTog'ri bo'limni tanlang!\n")
-                continue
-            if command==0:
-                print("Dastur tugadi!!!")
-                break
-            if command==1:
-                while True:
-                    print("\n---MAHSULOT QO'SHISH BO'LIMI---\n")
-                    product_name = input("Mahsulot nomini kiriting('exit'-chiqish):")
-                    if product_name=='exit':
-                        back_to_menu=True
-                        break
-                    try:
-                        product_price=int(input("Mahsulot narxini kiriting('exit'-chiqish):"))
-                        if product_price=='exit':
-                            back_to_menu = True
-                            break
-                        product_quantity=int(input("Mahsulot miqdorini kiriting('exit'-chiqish):"))
-                        if product_quantity=='exit':
-                            back_to_menu = True
-                            break
-                        add_product(product_name, product_price, product_quantity)
-                    except ValueError:
-                        print("Ma'lumot kiritishda xatolik!")
-                        ask=input("Yana mahsulot kiritasizmi?(y/n)")
-                        if ask=='n':
-                            break
-                if back_to_menu:
-                    continue
 
-            if command == 2:
-                while True:
-                    print("\n---MAHSULOT OLIB CHIQISH BO'LIMI---\n")
-                    product_name = input("Mahsulot nomini kiriting('exit'-chiqish):")
-                    if product_name == 'exit':
-                        back_to_menu = True
-                        break
-                    try:
-                        product_quantity = int(input("Mahsulot miqdorini kiriting('exit'-chiqish):"))
-                        if product_quantity == 'exit':
-                            back_to_menu = True
-                            break
-                        get_out_product(product_name, product_quantity)
-                    except ValueError:
-                        print("Ma'lumot kiritishda xatolik!")
-                        ask = input("Yana mahsulot olib chiqasizmi?(y/n)")
-                        if ask == 'n':
-                            break
-                if back_to_menu:
-                    continue
+# print(obj2)
 
-            if command == 3:
-                while True:
-                    print("\n---MAHSULOTLAR RO'YXATI BO'LIMI---\n")
-                    products_list()
-                    question=input("Menyuga qaytasizmi?(y/n)")
-                    if question == 'y':
-                        back_to_menu = True
-                        break
 
-                if back_to_menu:
-                    continue
 
-            return command
-        except ValueError:
-            print("Tog'ri bo'limni tanlang!")
-            question=input("Menyuga qaytasizmi?(y/n)")
-            if question=='n':
-                break
 
-input_data()
+
+
 
