@@ -154,29 +154,29 @@ from abc import ABC
 # print(obj.create_if_valid("Bahodir Qurbonov","10"))
 
 # 3
-from datetime import datetime
-
-class Car:
-    """Car class"""
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
-
-    def get_info(self):
-        return f"{self.brand} {self.model} {self.year}"
-
-    @staticmethod
-    def is_old(year):
-        current_year=datetime.now().year
-        return (current_year-int(year))>10
-
-    @classmethod
-    def from_string(cls, car_string):
-        brand, model, year = car_string.split(",")
-        return cls(brand, model, year)
-
-car1=Car.from_string("Toyota,Camry,2020")
-print(car1.get_info())
-print(Car.is_old(car1.year))
-
+# from datetime import datetime
+#
+# class Car:
+#     """Car class"""
+#     def __init__(self, brand, model, year):
+#         self.brand = brand
+#         self.model = model
+#         self.year = year
+#
+#     def get_info(self):
+#         return f"{self.brand} {self.model} {self.year}"
+#
+#     @staticmethod
+#     def is_old(year):
+#         current_year=datetime.now().year
+#         return (current_year-int(year))>10
+#
+#     @classmethod
+#     def from_string(cls, car_string):
+#         brand, model, year = car_string.split(",")
+#         return cls(brand, model, year)
+#
+# car1=Car.from_string("Toyota,Camry,2020")
+# print(car1.get_info())
+# print(Car.is_old(car1.year))
+#
