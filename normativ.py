@@ -1,5 +1,5 @@
 # # 1--------------------print-----------------------
-from calendar import month
+# from calendar import month
 
 # print("\"O'zbekiston Vatan\"im meni!!!")
 
@@ -690,108 +690,173 @@ from calendar import month
 # print(Computer.get_total_computers())
 
 
-# 17
+# 17-18
+#
+# from abc import ABC,abstractmethod
+#
+# class Computer(ABC):
+#     """Computer class"""
+#     total_computer=0
+#     def __init__(self, brand, model, year, price):
+#         self.brand=brand
+#         self.model=model
+#         self.year=year
+#         self._price=price
+#         Computer.total_computer+=1
+#
+#     @abstractmethod
+#     def display_info(self):
+#         pass
+#
+#     @classmethod
+#     def get_total_computers(cls):
+#         return f"Jami kompyuterlar:{cls.total_computer}"
+#
+#
+#     def get_price(self):
+#         return self._price
+#
+#     def set_price(self,price):
+#         if price<0:
+#             raise ValueError("Narx manfiy bo'lishi mumkin emas!")
+#         else:
+#             self._price=price
+#
+#     def __gt__(self, other):
+#         if not isinstance(other,Computer):
+#             return NotImplementedError
+#         return self._price > other._price
+#
+#     def __lt__(self, other):
+#         if not isinstance(other,Computer):
+#             return NotImplementedError
+#         return self._price < other._price
+#
+#     def __repr__(self):
+#         return f"{self.__class__.__name__}(Brand={self.brand},Model={self.model},Year={self.year},Price={self._price})"
+#
+# class Monoblock(Computer):
+#     """Monoblock class"""
+#     def __init__(self,brand,model,year,price, screen_size):
+#         super().__init__(brand,model,year,price)
+#         self.screen_size=screen_size
+#
+#     def display_info(self):
+#         return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nScreen:{self.screen_size}"
+#
+# class Notebook(Computer):
+#     """Notebook class"""
+#     def __init__(self,brand,model,year,price, battery_life):
+#         super().__init__(brand,model,year,price)
+#         self.battery_life=battery_life
+#
+#     def display_info(self):
+#         return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nBattery:{self.battery_life}"
+#
+#
+# class Factory:
+#     """Factory class"""
+#     total_factories=0
+#     def __init__(self,name):
+#         self.name=name
+#         self.products=[]
+#         Factory.total_factories+=1
+#
+#     def add_product(self,product):
+#         if isinstance(product,Computer):
+#             self.products.append(product)
+#         else:
+#             raise ValueError("Kompyuter klassidan emas!")
+#     def __repr__(self):
+#         return f"{self.name}({self.products})"
+#
+#     def list_products(self):
+#         # return f"Zavodda mavjud mahsulotlar:{self.products}"
+#         return [repr(product) for product in self.products]
+#
+#     @classmethod
+#     def get_total_factories(cls):
+#         return f"Jami yaratilgan zavodlar soni:{cls.total_factories}"
+#
+# obj1 = Monoblock('Apple', 'iMac', 2022, 1500, 27)
+# obj2 = Notebook('Lenovo', 'Thinkpad', 2024, 900, 8)
+# obj3 = Monoblock('Asus', 'TUF GAMING', 2023, 800, 15)
+# factory1=Factory("Lenovo")
+# factory1.add_product(obj2)
+# factory1.add_product(obj3)
+# factory2=Factory("Apple")
+# factory2.add_product(obj1)
+# print(factory1.list_products())
+# print(Factory.get_total_factories())
+# print(obj1<obj2)
+# print(factory1.list_products())
+# print(factory1)
+#
+#
+# # print(obj1.display_info())
+# # print(obj2.display_info())
+# # print(Computer.get_total_computers())
+#
+#
+#
+# # print(obj2)
+#
+#
 
-from abc import ABC,abstractmethod
-from itertools import product
+# 19-20
+# 1
+# text="John Smith - 85\nEmily Johnson - 90\nMichael Brown - 78\nSarah Davis - 92\nDavid Wilson - 69"
+# with open('students.txt','w') as file:
+#     file.write(text)
+#
+# # with open('students.txt','r') as file:
+#     # print(file.read())
+#
+# # 2
+# names=[]
+# scores=[]
+# with open('students.txt','r') as file:
+#     for line in file:
+#         name, score=line.split('-')
+#         score=int(score)
+#         names.append(name.strip())
+#         scores.append(score)
+#         # print(name,score)
+# print(names)
+# print(scores)
+#
+# # 3
+# with open("students.txt","r") as file:
+#     print("Bahosi 80 dan past bo'lgan o'quvchilar")
+#     for line in file:
+#         name,score=line.split("-")
+#         score=int(score)
+#         if score<80:
+#             print(name,score)
+#
+# # 4
+# with open("students.txt","r") as file:
+#     print("Bahosi 80 dan past bo'lgan o'quvchilar")
+#     for line in file:
+#         name,score=line.split("-")
+#         score=int(score)
+#         if score<80:
+#             score+=5
+#             print(name,score)
+#
+# # 5
+#
+# with open("students.txt", "r") as infile, open("result.txt", "w") as outfile:
+#     for line in infile:
+#         name, score = line.strip().split("-")
+#         score = int(score)
+#
+#         if score < 80:
+#             score += 5
+#
+#         outfile.write(f"{name}-{score}\n")
+#
 
-
-class Computer(ABC):
-    """Computer class"""
-    total_computer=0
-    def __init__(self, brand, model, year, price):
-        self.brand=brand
-        self.model=model
-        self.year=year
-        self._price=price
-        Computer.total_computer+=1
-
-    @abstractmethod
-    def display_info(self):
-        pass
-
-    @classmethod
-    def get_total_computers(cls):
-        return f"Jami kompyuterlar:{cls.total_computer}"
-
-    def get_price(self):
-        return f"Narxi:{self._price}"
-
-    def set_price(self,price):
-        if price<0:
-            raise ValueError("Narx manfiy bo'lishi mumkin emas!")
-        else:
-            self._price=price
-
-    def __gt__(self, other):
-        return self._price > other._price
-
-    def __repr__(self):
-        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}"
-
-class Monoblock(Computer):
-    """Monoblock class"""
-    def __init__(self,brand,model,year,price, screen_size):
-        super().__init__(brand,model,year,price)
-        self.screen_size=screen_size
-
-    def display_info(self):
-        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nScreen:{self.screen_size}"
-
-class Notebook(Computer):
-    """Notebook class"""
-    def __init__(self,brand,model,year,price, battery_life):
-        super().__init__(brand,model,year,price)
-        self.battery_life=battery_life
-
-    def display_info(self):
-        return f"Brand:{self.brand}\nModel:{self.model}\nYear:{self.year}\nPrice:{self._price}\nScreen:{self.battery_life}"
-
-
-class Factory:
-    """Factory class"""
-    total_factories=0
-    def __init__(self,name):
-        self.name=name
-        self.products=[]
-        Factory.total_factories+=1
-
-    def add_product(self,product):
-        if isinstance(product,Computer):
-            self.products.append(product)
-        else:
-            raise ValueError("Kompyuter klassidan emas!")
-    def __repr__(self):
-        return f"{self.name}({self.products})"
-    def list_products(self):
-        return f"Zavodda mavjud mahsulotlar:{self.products}"
-
-    @classmethod
-    def get_total_factories(cls):
-        return f"Jami yaratilgan zavodlar soni:{cls.total_factories}"
-
-obj1 = Monoblock('Apple', 'iMac', 2022, 1500, 27)
-obj2 = Notebook('Lenovo', 'Thinkpad', 2024, 900, 8)
-obj3 = Monoblock('Asus', 'TUF GAMING', 2023, 800, 15)
-factory1=Factory("Lenovo")
-factory1.add_product(obj2)
-factory1.add_product(obj3)
-factory2=Factory("Apple")
-factory2.add_product(obj1)
-print(factory1.list_products())
-print(Factory.get_total_factories())
-print(obj1<obj2)
-print(factory1.list_products())
-print(factory1)
-
-
-# print(obj1.display_info())
-# print(obj2.display_info())
-# print(Computer.get_total_computers())
-
-
-
-# print(obj2)
 
 
 

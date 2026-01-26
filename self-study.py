@@ -522,7 +522,7 @@ from threading import settrace_all_threads
 #
 # print(data)
 
-import json
+# import json
 
 # x = {'name': 'javohir',
 #      'email': 'javohir5592272@gmail.com',
@@ -537,7 +537,13 @@ import json
 # with open('data.json','w') as f:
 #     json.dump(data,f)
 #
-with open('data.json') as f:
-    data = json.load(f)
-print(data['Rang'])
+# with open('data.json') as f:
+#     data = json.load(f)
+# print(data['Rang'])
 
+
+# from datetime import datetime as dt
+# hozir=dt.now()
+# print(hozir.hour)
+# print(hozir.minute)
+# print(hozir.second)
