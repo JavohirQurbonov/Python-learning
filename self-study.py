@@ -542,8 +542,26 @@ from threading import settrace_all_threads
 # print(data['Rang'])
 
 
-# from datetime import datetime as dt
-# hozir=dt.now()
-# print(hozir.hour)
-# print(hozir.minute)
-# print(hozir.second)
+# import datetime as dt
+# bugun=dt.date.today()
+# keyingi=dt.date(2026,2,5)
+# while bugun<=keyingi:
+#     bugun=bugun+dt.timedelta(days=1)
+#     print(bugun)
+
+# import datetime as dt
+# today = dt.date.today()
+# ramadan=dt.date(2026,2,17)
+# hayit=dt.date(2026,3,17)
+# while today<=ramadan:
+#     today=today+dt.timedelta(days=1)
+#     print(today)
+# while today<=hayit:
+#     today=today+dt.timedelta(days=1)
+#     print(today)
+
+# print(today)
+
+
+
+

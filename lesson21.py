@@ -143,40 +143,40 @@
 
 # 3
 
-class Product:
-    """Product class"""
-    __foiz=0
-    def __init__(self,price):
-        self.__price = price
-
-    @classmethod
-    def set_discount(cls,foiz):
-        if not isinstance(foiz,int):
-            raise TypeError('Foiz son bo\'lishi kerak')
-        if foiz < 0 or foiz > 100:
-            raise ValueError('Chegirma 0-100 oraliqda bo\'lishi kerak')
-        cls.__foiz = foiz
-
-    @staticmethod
-    def calculate_tax(amount):
-        standart_tax=5
-        if not isinstance(amount,int):
-            raise TypeError('Miqdor son bo\'lishi kerak')
-        if amount<0:
-            raise ValueError('Musbat son bo\'lishi kerak')
-        return amount+(amount*standart_tax)/100
-
-
-    def get_price(self):
-        return self.__price*((100-Product.__foiz)/100)
-
-
-
-p1 = Product(1000)
-Product.set_discount(10)  # 10% chegirma
-print(p1.get_price())  # 900
-print(Product.calculate_tax(900))  # Masalan, 5% soliq - 945
-
-
+# class Product:
+#     """Product class"""
+#     __foiz=0
+#     def __init__(self,price):
+#         self.__price = price
+#
+#     @classmethod
+#     def set_discount(cls,foiz):
+#         if not isinstance(foiz,int):
+#             raise TypeError('Foiz son bo\'lishi kerak')
+#         if foiz < 0 or foiz > 100:
+#             raise ValueError('Chegirma 0-100 oraliqda bo\'lishi kerak')
+#         cls.__foiz = foiz
+#
+#     @staticmethod
+#     def calculate_tax(amount):
+#         standart_tax=5
+#         if not isinstance(amount,int):
+#             raise TypeError('Miqdor son bo\'lishi kerak')
+#         if amount<0:
+#             raise ValueError('Musbat son bo\'lishi kerak')
+#         return amount+(amount*standart_tax)/100
+#
+#
+#     def get_price(self):
+#         return self.__price*((100-Product.__foiz)/100)
+#
+#
+#
+# p1 = Product(1000)
+# Product.set_discount(10)  # 10% chegirma
+# print(p1.get_price())  # 900
+# print(Product.calculate_tax(900))  # Masalan, 5% soliq - 945
+#
+#
 
 
