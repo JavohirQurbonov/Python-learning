@@ -381,22 +381,45 @@
 
 # 5
 
-# To'liqmas
-
+#
 # def longest_seqeunce(numbers:list):
+#     x=''
 #     for list_1 in numbers:
-#         print('\n')
 #         i=0
 #         size=len(list_1)
 #         test_list=[]
 #         while i<size-1:
 #             if list_1[i]<list_1[i+1]:
 #                 test_list.append(list_1[i])
+#             if list_1[-1]==list_1[i+1]:
+#                 test_list.append(list_1[-1])
 #             i+=1
-#         print(test_list)
-#         # if len(test_list)==size:
-#         #     return  test_list
-# print(longest_seqeunce([[1,4,5],[3,5,7,9,12],[5,6,8,9,10,25,32,12,16,18]]))
+#         # print(test_list)
+#         if len(test_list)==size:
+#             x=test_list.copy()
+#
+#     return x
+# print(longest_seqeunce([[1,4,5],[3,5,7,9,12],[5,6,8,9,10,16,18]]))
+
+
+# Extra
+# def longest_sequence(numbers: list):
+#     longest = []
+#
+#     for seq in numbers:
+#         is_increasing = True
+#         for i in range(len(seq) - 1):
+#             if seq[i] >= seq[i + 1]:
+#                 is_increasing = False
+#                 break
+#
+#         if is_increasing and len(seq) > len(longest):
+#             longest = seq
+#
+#     return longest
+#
+#
+# print(longest_sequence([[1,4,5],[3,5,7,9,12],[5,6,8,9,10,16,18]]))
 
 
 # 6
