@@ -14,9 +14,9 @@
 # obj=Student("James", 24)
 # print(obj.study())
 # print(obj.get_age())
-from calendar import prcal
-from os import name
-from time import sleep
+# from calendar import prcal
+# from os import name
+# from time import sleep
 
 
 # 2
@@ -119,7 +119,7 @@ from time import sleep
 # 1
 # class Student:
 #     """Student Class"""
-#     def __init__(self, name:str, age:int):
+#     def __init__(self, name, age:int):
 #         if not isinstance(name, str) or not isinstance(age, int):
 #             raise TypeError("Student Name and Age must be of type str")
 #         self.name=name.title()
@@ -128,11 +128,11 @@ from time import sleep
 #     def __str__(self):
 #         return f"{self.name}, {self.age} yosh"
 #
-#     def __repr__(self):
-#         return f"{self.__class__.__name__}({self.name}, {self.age})"
+#     # def __repr__(self):
+#     #     return f"{self.__class__.__name__}({self.name}, {self.age})"
 #
-# obj=Student("ali", 18)
-# print(repr(obj))
+# obj=Student('ali', 18)
+# print(obj)
 
 # 2
 
@@ -338,13 +338,170 @@ from time import sleep
 
 # class Manager:
 #     """Manager class"""
-#     def __init__(self, name:str, practise:float):
-#         self.name = name.title()
-#         self.practise = practise
+#     def __init__(self, name, experience):
+#         Manager.check_info(name,experience)
 #
-#     def check_info(self):
-#         if not isinstance(self.name,str):
+#         self.name = name.title()
+#         self.experience = experience
+#
+#     @classmethod
+#     def check_info(cls,name,experience):
+#         if not isinstance(name,str):
 #             raise TypeError("Ism harfda kiritilishi kerak")
-#         if not isinstance(self.practise,(float,int)):
+#         if not isinstance(experience,(float,int)):
 #             raise TypeError("Tajriba raqamda kiritiladi!")
+#
+#     def team_info(self):
+#         return f"Name:{self.name}\nExperience:{self.experience}"
+#
+# class Developer(Manager):
+#     """Developer class"""
+#     def __init__(self,name,experience,age,languages:list):
+#         super().__init__(name,experience)
+#         self.age = age
+#         self.languages = languages
+#
+#     def team_info(self):
+#         return f"Name{self.name}\nExperience:{self.experience}\nAge:{self.age}\nLanguages:{self.languages}"
+#
+# obj=Developer("Javohir",1,24,['python','typescript'])
+# print(obj.team_info())
+#
+
+# ------------------------------Day-6----------------------------------
+
+# 1
+
+# from abc import ABC,abstractmethod
+# from math import pi
+#
+# class Shape(ABC):
+#     """Shape class"""
+#     @abstractmethod
+#     def area(self):
+#         pass
+#
+# class Rectangle(Shape):
+#     def __init__(self,width,height):
+#         self.width = width
+#         self.height = height
+#
+#     def area(self):
+#         return f"Eni:{self.width}\nBo'yi:{self.height}\nYuzi:{self.width*self.height}"
+#
+# class Circle(Shape):
+#     def __init__(self,radius):
+#         self.radius = radius
+#
+#     def area(self):
+#         return f"Radius:{self.radius}\nYuzi:{pi*pow(self.radius,2)}"
+#
+# obj=Circle(5)
+# print(obj.area())
+
+# 2
+
+# from abc import ABC,abstractmethod
+#
+# class Vehicle(ABC):
+#     """Vehicle class"""
+#
+#     @abstractmethod
+#     def start_engine(self):
+#         pass
+#
+# class Car(Vehicle):
+#     """Car class"""
+#
+#     def start_engine(self):
+#         return f"Car engine started"
+#
+# class Bike(Vehicle):
+#     """Bike class"""
+#
+#     def start_engine(self):
+#         return f"Bike engine started"
+#
+# obj=Car()
+# obj1=Bike()
+# print(obj.start_engine())
+# print(obj1.start_engine())
+
+# ------------------------------Day-7--------------------------
+
+# 1
+
+# from abc import ABC,abstractmethod
+#
+# class Account(ABC):
+#     """Account class"""
+#     def __init__(self,balance:float):
+#         self.__balance = balance
+#
+#     @staticmethod
+#     def verify_amount(amount):
+#         if  not isinstance(amount,(float,int)):
+#             raise TypeError("Qiymat son ko'rinishida bo'lishi kerak")
+#         if amount<0:
+#             raise ValueError("Miqdor manfiy bo'lishi mumkin emas")
+#
+#     def deposit(self,amount):
+#         self.verify_amount(amount)
+#         self.__balance+=amount
+#
+#     def withdraw(self,amount):
+#         self.verify_amount(amount)
+#         if amount>self.__balance:
+#             raise ValueError("Hisobda mablag' yetarli emas!")
+#         self.__balance-=amount
+#
+#     def get_balance(self)->float:
+#         return self.__balance
+#
+#     @abstractmethod
+#     def account_type(self)->str:
+#         pass
+#
+# class SavingsAccount(Account):
+#     """SavingsAccount class (inheritense class)"""
+#     def __init__(self,balance,interest_rate):
+#         super().__init__(balance)
+#         self.interest_rate = interest_rate
+#
+#     def apply_interest(self):
+#         procent=self.get_balance()*self.interest_rate/100
+#         self.deposit(procent)
+#
+#     def account_type(self) ->str:
+#         return f"Savings"
+#
+# class CheckingAccount(Account):
+#     """Checking Account (inheritense class)"""
+#     def __init__(self ,balance ,fee ):
+#         super().__init__(balance)
+#         self.fee = fee
+#
+#     def withdraw(self,amount):
+#         total=amount+self.fee
+#         super().withdraw(total)
+#
+#     def account_type(self) ->str:
+#         return f"Checking"
+#
+#
+#
+# savings = SavingsAccount(1000, 5)
+# checking = CheckingAccount(2000, 10)
+#
+# accounts = [savings, checking]
+#
+# def show_account_info(accounts: list):
+#     """Bitta funksiya orqali barcha accountlarni ishlatish"""
+#     for acc in accounts:
+#         print(f"Account type: {acc.account_type()}, Balance: {acc.get_balance()}")
+# savings.apply_interest()
+# checking.withdraw(500)
+#
+# print("\nBalans yangilanganidan keyin:")
+# show_account_info(accounts)
 
